@@ -73,3 +73,7 @@ The scatter plot of actual house prices versus predicted prices demonstrates str
 
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/32ffd19a5bf85d6e019b839bd1a7c07bbf321c6a/House%20Price%20Prediction/Main/Result/Scatter%20Plot%20of%20Actual%20vs%20%20Predicted%20Prices%20for%20All%20Ranges/image.png)
 
+Distribution of Residuals per Price Range
+![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/5886e26b23eafd4cba17701511e859300a895a26/House%20Price%20Prediction/Main/Result/Distribution%20of%20Residuals%20per%20Price%20Range/image.png)
+
+The residual analysis, which shows the difference between predicted and actual house prices, reveals that the model performs best for low and medium-priced properties. For low-priced houses, residuals are concentrated around zero, indicating accurate predictions with minimal errors. Medium-priced properties show a wider spread of residuals, suggesting increased prediction variance but no strong systematic bias. High-priced properties exhibit the largest residual distribution with long tails, indicating larger prediction errors and higher uncertainty due to factors like premium locations and luxury features not fully captured by the model. In conclusion, the model performs well for lower and mid-range properties, but improvements are needed for high-priced properties by incorporating richer features and more advanced techniques.
