@@ -55,5 +55,14 @@ High Price Range
 ## High-Level Architecture Diagram
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/81a48ea4ce2aba6bb330c889bcf3712383d7d101/House%20Price%20Prediction/Main/High-Level%20Architecture%20Diagram/image.png)
 
+
+
+Random Forest Price Range Confusion Matrix
+|       | High | Low | Medium |
+| ----------- | ----------- | ----------- | ----------- |
+| **Actual High** | 4157      | 1      | 26       |
+| **Actual Low**   | 9        | 1193        | 16        |
+| **Actual Medium**   | 29        | 25        | 5156        |
+
 Performance of the Regression Models by Price Range
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/74de96dabf1c5992bb3a2b007495d16e679a0cbd/House%20Price%20Prediction/Main/Regression_Output/image.png)
