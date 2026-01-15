@@ -14,6 +14,8 @@ XPath was used to extract key property details, such as price, location, and num
 
 After scraping, the data was cleaned and preprocessed by removing duplicates, handling missing values, and standardizing formats. A new price range variable was created by categorizing prices into low, medium, and high ranges using quartiles. The cleaned data was then saved in CSV format, ready for use in training machine learning models for both classification (predicting price range) and regression (estimating exact prices).
 
+![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/936d2de0194e5b04fc8649fab47df037539244db/House%20Price%20Prediction/Main/Web%20Scraping/Extracted%20Attributes/image.png)
+
 ## Experimental Results and Comparison
 
 ### CLASSIFICATION
