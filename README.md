@@ -65,3 +65,7 @@ Random Forest Price Range Confusion Matrix
 | **Actual Low**   | 9        | 1193        | 16        |
 | **Actual Medium**   | 29        | 25        | 5156        |
 
+
+Scatter Plot of Actual vs  Predicted Prices for All Ranges
+![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/cff7474d1ab89cdbec73b8ad052ea80ed0e6f6bd/House%20Price%20Prediction/Main/Scatter%20Plot%20of%20Actual%20vs%20%20Predicted%20Prices%20for%20All%20Ranges/image.png)
+
