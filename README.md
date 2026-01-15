@@ -8,6 +8,12 @@ This project presents a two-stage hybrid approach for accurate house price predi
 
 The dataset for this research was collected from the iProperty Malaysia website, covering 13 states and federal territories: Johor, Kedah, Kelantan, Melaka, Penang, Perak, Putrajaya, Sabah, Sarawak, Selangor, Terengganu, Labuan, and Pahang. The data was gathered using Selenium WebDriver in Python, which automates browser actions to mimic human browsing behavior, inspect web pages, and extract property details.
 
+The dataset for this research was collected from the iProperty Malaysia website using Selenium WebDriver in Python, which automates browser interactions for web scraping. The script handled dynamic scrolling and pagination to capture listings spread across multiple pages. User-agent spoofing was implemented to avoid being blocked by the website, mimicking real browser requests.
+
+XPath was used to extract key property details, such as price, location, and number of bedrooms. The script also handled lazy loading and infinite scrolling to ensure all dynamically loaded data was captured by continuously comparing page height. Pagination was managed by clicking the "Next" button to access additional pages.
+
+After scraping, the data was cleaned and preprocessed by removing duplicates, handling missing values, and standardizing formats. A new price range variable was created by categorizing prices into low, medium, and high ranges using quartiles. The cleaned data was then saved in CSV format, ready for use in training machine learning models for both classification (predicting price range) and regression (estimating exact prices).
+
 ## Experimental Results and Comparison
 
 ### CLASSIFICATION
