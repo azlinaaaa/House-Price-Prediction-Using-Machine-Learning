@@ -47,6 +47,14 @@ Medium Price Range
 
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/1523f3a62a432037c428aa713780cf527934ebf6/House%20Price%20Prediction/Main/Regression_Output/Regression_Medium_Price_Range.png)
 
+High Price Range
+
+| Model        | MAE     | RMSE    | R2_train | R2_test |
+|--------------|---------|---------|----------|---------|
+| RandomForest | 53,675  | 266,989 | 0.9808   | 0.9528  |
+| LightGBM     | 86,868  | 306,793 | 0.9659   | 0.9377  |
+| CatBoost     | 86,001  | 310,606 | 0.9670   | 0.9361  |
+| XGBoost      | 100,395 | 318,490 | 0.9616   | 0.9329  |
 
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/7f8b8b1bb7d183e182bc61d64375271ea6100029/House%20Price%20Prediction/Main/Regression_Output/Regression_High_Price_Range.png)
 
