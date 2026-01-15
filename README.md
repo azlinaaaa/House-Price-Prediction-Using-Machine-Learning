@@ -87,3 +87,6 @@ SHAP Beeswarm Plot (Global Feature Importance)
 
 SHAP (SHapley Additive exPlanations) analysis was employed to understand the model's decision-making process. The SHAP summary plot reveals that features such as 'Price per SqFt' and 'Built-up' area have the greatest impact on the model's predictions. High values (red) push  redictions upward while low values (blue) pull them downward for these top features reflecting a strong positive relationship with price. In contrast, features like 'Furnishing', 'Carpark', and 'Bedroom' show smaller spreads around zero indicating a weaker overall influence. This demonstrates that the model’s predictions are primarily driven by size-related and location-related attributes which aligns with real-world property valuation principles.
 
+iProperty Website Architecture with House Attributes and Pricing Flow for Selangor
+![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/baae2de9f38166974f12cf5c809938786e1d4f0b/House%20Price%20Prediction/Main/Streamlit/image.png)
+
