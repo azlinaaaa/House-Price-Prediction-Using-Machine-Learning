@@ -11,7 +11,6 @@ Overall Classification Performance Comparison
 | LightGBM | 0.9883 | 0.9842 | 0.9846 | 0.9844 |
 | CatBoost | 0.9861 | 0.9836 | 0.9817 | 0.9827 |
 
-![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/d1b1ba6224c6477b182fc6c7cb5a4f9397e1abf7/House%20Price%20Prediction/Main/Classification_Output/Screenshot%202026-01-15%20132619.png)
 
 Per-Class Performance for RandomForest (Best Model)
 
@@ -21,8 +20,6 @@ High | 0.9916 | 0.9916 | 0.9916 | 4184
 Low | 0.9747 | 0.9811 | 0.9779 | 1218  
 Medium | 0.9915 | 0.9900 | 0.9908 | 5210  
 
-
-![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/3ded46bab81d1cae76fc3478e46509f6ae4ff109/House%20Price%20Prediction/Main/Classification_Output/image.png)
 
 ### REGRESSION
 Analysis Low Price Range
@@ -34,7 +31,6 @@ Analysis Low Price Range
 | LightGBM     | 4,589 | 12,598 | 0.9893   | 0.9471  |
 | CatBoost     | 4,196 | 11,577 | 0.9921   | 0.9553  |
 
-![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/63d0dd808fa1fbaa8bd164650a87a612a1956b1b/House%20Price%20Prediction/Main/Regression_Output/Regression_Low_Price_Range.png)
 
 Medium Price Range
 
@@ -45,7 +41,6 @@ Medium Price Range
 | LightGBM     | 5,906 | 19,781 | 0.9922   | 0.9773  |
 | XGBoost      | 9,266 | 20,009 | 0.9869   | 0.9768  |
 
-![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/1523f3a62a432037c428aa713780cf527934ebf6/House%20Price%20Prediction/Main/Regression_Output/Regression_Medium_Price_Range.png)
 
 High Price Range
 
@@ -56,7 +51,6 @@ High Price Range
 | CatBoost     | 86,001  | 310,606 | 0.9670   | 0.9361  |
 | XGBoost      | 100,395 | 318,490 | 0.9616   | 0.9329  |
 
-![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/7f8b8b1bb7d183e182bc61d64375271ea6100029/House%20Price%20Prediction/Main/Regression_Output/Regression_High_Price_Range.png)
 
 ## High-Level Architecture Diagram
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/81a48ea4ce2aba6bb330c889bcf3712383d7d101/House%20Price%20Prediction/Main/High-Level%20Architecture%20Diagram/image.png)
