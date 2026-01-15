@@ -4,6 +4,13 @@
 
 ### CLASSIFICATION
 Overall Classification Performance Comparison
+| Model | Accuracy | Macro Precision | Macro Recall | Macro F1-Score |
+|---|---|---|---|---|
+| RandomForest | 0.9896 | 0.9860 | 0.9876 | 0.9868 |
+| XGBoost | 0.9889 | 0.9859 | 0.9863 | 0.9861 |
+| LightGBM | 0.9883 | 0.9842 | 0.9846 | 0.9844 |
+| CatBoost | 0.9861 | 0.9836 | 0.9817 | 0.9827 |
+
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/d1b1ba6224c6477b182fc6c7cb5a4f9397e1abf7/House%20Price%20Prediction/Main/Classification_Output/Screenshot%202026-01-15%20132619.png)
 
 Per-Class Performance for RandomForest (Best Model)
