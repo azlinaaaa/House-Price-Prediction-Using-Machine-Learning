@@ -15,3 +15,4 @@ Per-Class Performance for RandomForest (Best Model)
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/7f8b8b1bb7d183e182bc61d64375271ea6100029/House%20Price%20Prediction/Main/Regression_Output/Regression_High_Price_Range.png)
 
 ## High-Level Architecture Diagram
+![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/81a48ea4ce2aba6bb330c889bcf3712383d7d101/House%20Price%20Prediction/Main/High-Level%20Architecture%20Diagram/image.png)
