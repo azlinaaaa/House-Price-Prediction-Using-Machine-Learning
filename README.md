@@ -25,7 +25,16 @@ Medium | 0.9915 | 0.9900 | 0.9908 | 5210
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/3ded46bab81d1cae76fc3478e46509f6ae4ff109/House%20Price%20Prediction/Main/Classification_Output/image.png)
 
 ### REGRESSION
+Table 4.20: Analysis Low Price Range
+
+| Model        | MAE   | RMSE   | R2_train | R2_test |
+|--------------|-------|--------|----------|---------|
+| RandomForest | 3,559 | 12,001 | 0.9929   | 0.9520  |
+| XGBoost      | 4,065 | 12,517 | 0.9952   | 0.9478  |
+| LightGBM     | 4,589 | 12,598 | 0.9893   | 0.9471  |
+| CatBoost     | 4,196 | 11,577 | 0.9921   | 0.9553  |
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/63d0dd808fa1fbaa8bd164650a87a612a1956b1b/House%20Price%20Prediction/Main/Regression_Output/Regression_Low_Price_Range.png)
+
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/1523f3a62a432037c428aa713780cf527934ebf6/House%20Price%20Prediction/Main/Regression_Output/Regression_Medium_Price_Range.png)
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/7f8b8b1bb7d183e182bc61d64375271ea6100029/House%20Price%20Prediction/Main/Regression_Output/Regression_High_Price_Range.png)
 
