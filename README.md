@@ -3,6 +3,11 @@
 ## ABSTRACT
 This project presents a two-stage hybrid approach for accurate house price prediction by combining classification and regression techniques. The dataset for this study was gathered manually by scraping property listings from the iProperty website, which includes data from various states in Malaysia. Each listing was processed to extract important details such as built-up area, property type, number of bedrooms and bathrooms, furnishing status, number of parking spaces, and price per square foot. The collected data was then merged into a comprehensive dataset and underwent cleaning to remove missing or inconsistent entries. In the first stage, houses are classified into three price categories which is Low, Medium, and High by using machine learning, with Random Forest delivering the best performance. Several machine learning models, including Random Forest, XGBoost, LightGBM, and CatBoost, were used to classify house prices into quartiles, and their performance was evaluated using classification metrics such as accuracy, precision, recall, and F1-score. In the second stage, three separate regression models are built, one for each price category. Each model is trained to learn the unique patterns and behaviours specific to its respective price range. The final system integrates the classification and regression stages, where the predicted price category determines the corresponding regressor to generate an accurate house price prediction. This approach leverages key house attributes to enhance prediction accuracy and align more closely with real property market trends. The use of this combined multi-regression strategy improves the overall predictive performance, reduces errors, and better reflects the actual property market behaviour.
 
+
+## Dataset Description
+
+The dataset for this research was collected from the iProperty Malaysia website, covering 13 states and federal territories: Johor, Kedah, Kelantan, Melaka, Penang, Perak, Putrajaya, Sabah, Sarawak, Selangor, Terengganu, Labuan, and Pahang. The data was gathered using Selenium WebDriver in Python, which automates browser actions to mimic human browsing behavior, inspect web pages, and extract property details.
+
 ## Experimental Results and Comparison
 
 ### CLASSIFICATION
