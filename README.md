@@ -71,7 +71,6 @@ Scatter Plot of Actual vs  Predicted Prices for All Ranges
 
 The scatter plot of actual house prices versus predicted prices demonstrates strong alignment with the ideal prediction line (y = x), indicating that the machine learning model generally performs well in estimating house prices. Most properties, particularly those in the low and medium price ranges, show minimal deviation from the ideal line, suggesting high prediction accuracy. However, high-priced properties exhibit larger prediction errors, reflecting the model's difficulty in accurately predicting more expensive houses due to greater variability and complex influencing factors. The increasing forecast error with higher prices indicates heteroscedasticity, where prediction uncertainty grows for higher-priced homes. In conclusion, while the model excels in predicting lower and mid-range house prices, further improvement is needed for high-priced properties, potentially through additional features, more high-end samples, and advanced learning techniques.
 
-![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/32ffd19a5bf85d6e019b839bd1a7c07bbf321c6a/House%20Price%20Prediction/Main/Result/Scatter%20Plot%20of%20Actual%20vs%20%20Predicted%20Prices%20for%20All%20Ranges/image.png)
 
 Distribution of Residuals per Price Range
 ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/5886e26b23eafd4cba17701511e859300a895a26/House%20Price%20Prediction/Main/Result/Distribution%20of%20Residuals%20per%20Price%20Range/image.png)
