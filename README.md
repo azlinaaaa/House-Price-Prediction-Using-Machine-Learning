@@ -196,7 +196,7 @@ iProperty Website Architecture with House Attributes and Pricing Flow for Selang
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Norazlina Mohd Shariff**  
 Final-Year Data Science Student  
