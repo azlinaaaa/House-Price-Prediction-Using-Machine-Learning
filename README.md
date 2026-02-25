@@ -28,6 +28,7 @@ This project demonstrates how **data-driven segmentation and modular ML architec
 
 ## 📊 Dataset Description
 
+![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/936d2de0194e5b04fc8649fab47df037539244db/House%20Price%20Prediction/Main/Web%20Scraping/Extracted%20Attributes/image.png)
 The dataset was collected from the **iProperty Malaysia website** using Selenium WebDriver in Python.
 
 ### Coverage
