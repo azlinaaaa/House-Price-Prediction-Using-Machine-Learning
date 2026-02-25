@@ -1,4 +1,3 @@
-```markdown
 # 🏠 House Price Prediction Using Machine Learning (Malaysia Market)
 
 ## 📌 Project Overview
@@ -214,4 +213,3 @@ It reflects the ability to bridge **data science with business logic**, not just
 Final-Year Data Science Student  
 
 Passionate about building data-driven systems that solve real-world business problems.
-```
