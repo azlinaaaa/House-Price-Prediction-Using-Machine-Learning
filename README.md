@@ -158,8 +158,7 @@ This project demonstrates:
 - Model interpretability and transparency
 - Deployment-ready design using Streamlit
 
-It reflects the ability to bridge **data science with business logic**, not just model building.
-
+iProperty Website Architecture with House Attributes and Pricing Flow for Selangor ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/a88129835c9aa7db1d97eb71c36fdaf8c085764b/House%20Price%20Prediction/Main/Streamlit/iProperty%20Website%20Architecture%20with%20House%20Attributes%20and%20Pricing%20Flow%20for%20Selangor.png) User Input Flow in Streamlit for House Attribute Based Price Prediction in Selangor ![image alt](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/baae2de9f38166974f12cf5c809938786e1d4f0b/House%20Price%20Prediction/Main/Streamlit/image.png)
 ---
 
 ## 🛠 Tech Stack
