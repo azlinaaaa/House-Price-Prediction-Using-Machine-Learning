@@ -125,17 +125,6 @@ This segmentation significantly reduces prediction error by allowing each model 
 
 ---
 
-## 🔍 Model Interpretability
-
-SHAP (SHapley Additive exPlanations) was used to analyze feature importance.
-
-Top influencing features:
-- Price per SqFt
-- Built-up area
-
-This confirms that the model aligns with real-world property valuation principles.
-
----
 
 ## 🏗 System Workflow
 
