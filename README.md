@@ -1,95 +1,59 @@
 # Malaysian House Price Prediction Using Machine Learning
 
-![Python](https://img.shields.io/badge/Python-ML%20Project-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-Machine%20Learning-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Market](https://img.shields.io/badge/Market-Malaysia-2E8B57?style=for-the-badge)
-![Data](https://img.shields.io/badge/Source-iProperty-1F6FEB?style=for-the-badge)
+![Source](https://img.shields.io/badge/Data-iProperty-1F6FEB?style=for-the-badge)
 
-An end-to-end property analytics project that collects Malaysian residential listings from iProperty, prepares listing attributes, and evaluates machine-learning approaches for price estimation and price-band classification. The work explores how property characteristics such as location, built-up area, property type, and room counts can support more consistent first-pass price analysis.
-
-> **Project status and results:** The thesis documents a quartile-classification experiment and a separate regression task. The project README draft also reports a later three-band, two-stage pipeline. These are presented separately below because their targets and results differ.
+An end-to-end machine-learning project for analysing Malaysian residential property listings. The system uses listing attributes to classify properties into price bands and estimate a price with a regression model selected for that band.
 
 ## Business problem
 
-House prices depend on several interacting factors, including location, property type, size, furnishing, and available facilities. Manual comparisons and simple statistical approaches may not capture nonlinear relationships across a varied market. Buyers, sellers, investors, and property analysts need a consistent way to compare listings and form an initial price estimate.
+Buyers, sellers, and property analysts often compare listings with different locations, sizes, property types, and facilities. Manual comparisons can be inconsistent, while a single pricing model may not represent the different patterns across lower-, mid-, and higher-priced properties.
 
-This project investigates whether structured property-listing data and machine learning can help users:
-
-- Estimate a listing's price or broad market segment from its attributes.
-- Compare properties using a repeatable analytical approach.
-- Identify which property characteristics are useful to examine when assessing a price.
-- Explore Malaysian listing data across a broader geographic scope than a single-city study.
-
-The model output is an analytical estimate based on listing data. It is not a formal valuation, a guaranteed sale price, or financial advice.
+This project explores a structured, data-driven approach to help users form an initial price estimate, compare listings, and identify properties for further review. Its outputs are estimates based on online asking listings, not formal valuations or guaranteed transaction prices.
 
 ## Solution
 
-The project combines web data collection, data preparation, feature engineering, model training, and evaluation. The thesis reports two experimental tasks:
+The main solution is a **two-stage, market-segmented prediction pipeline**:
 
-1. **Price regression:** estimate a continuous property price.
-2. **Price-quartile classification:** classify a listing into one of four price groups, Q1 to Q4.
+1. A Random Forest classifier assigns a listing to the **Low**, **Medium**, or **High** price range.
+2. A price-range-specific regression model estimates the listing price.
 
-The separate project README draft describes an additional **two-stage approach**: first classify a listing as Low, Medium, or High, then route it to a price-range-specific regression model. Its results are reported separately from the thesis experiment.
+This design gives the regression models a more focused segment to learn from. The supplied project results report strong classification and segment-level regression performance; the results are shown below without combining them with the separate quartile experiment documented in the thesis.
 
-## Dataset
+## Dataset and collection
 
-| Attribute | Description |
+| Item | Description |
 | --- | --- |
-| Source | Residential listings collected from iProperty Malaysia |
+| Source | Residential listings from iProperty Malaysia |
 | Dataset size | More than 50,000 listings, as reported in the thesis |
 | Geographic scope | 13 Malaysian states and federal territories, as reported in the thesis |
 | Collection period | January–March 2025 |
-| Data type | A snapshot of online asking listings during collection; it does not represent completed transaction prices or later market changes |
-| Main fields | Listing name, location, price, built-up area, property type, bedrooms, bathrooms, car parks, furnishing, and price per square foot |
+| Data type | Online asking listings captured during the collection period |
+| Main attributes | Location, built-up area, property type, bedrooms, bathrooms, furnishing, car parks, price per square foot, and listed price |
 
-The source documents describe the geographic coverage at a high level, but list locations inconsistently in different sections. The README therefore retains the thesis's stated count and does not provide a potentially inaccurate location-by-location list.
+The thesis describes automated collection with Selenium WebDriver, including dynamic-page loading, scrolling, pagination, and XPath-based extraction. The data is a market snapshot and does not represent completed transactions or subsequent price changes.
 
-## Data collection and preparation
+## Data preparation and features
 
-The thesis describes automated collection from iProperty using Selenium WebDriver, dynamic-page waits and scrolling, pagination, XPath-based extraction, and CSV outputs. It also references Selenium and Scrapy among the project tools.
+The implementation described in the thesis combines the collected listing files, cleans price fields into numeric values, converts entries such as `4+1` into totals, and removes fields not used for modelling, including agent name and post date. It also excludes listings above **RM1,000,000** to reduce the effect of luxury-property outliers.
 
-Documented preparation steps include:
+The project uses property attributes such as location, property type, furnishing, built-up area, bedrooms, bathrooms, and car parks. The thesis also describes engineered features including total rooms, built-up area per room, price per square foot, and log-transformed size or price values. Categorical fields are encoded for model training.
 
-- Combining state-level listing files into a consolidated dataset.
-- Cleaning price and price-per-square-foot text into numeric values.
-- Converting entries such as `4+1` in bedroom, bathroom, or car-park fields into totals.
-- Removing non-modelling fields such as agent name and post date in the implementation chapter.
-- Excluding listings priced above **RM1,000,000** to reduce the influence of luxury-property outliers.
-- Creating derived features such as total rooms, built-up area per room, price per square foot, and log-transformed size or price fields.
-- Encoding categorical attributes such as location, furnishing, property type, and state.
+## Main model results: three price bands
 
-The thesis describes both median/mode imputation for non-critical missing fields and removal of rows containing `N/A` values in its implementation discussion. Those are distinct preparation descriptions; the exact final cleaning configuration should be confirmed against the project code before operational reuse.
+### Stage 1 — Price-range classification
 
-## Model design and experiments
-
-### Experiment A — Four-quartile classification documented in the thesis
-
-The continuous price target was divided using `pandas.qcut()` into four equal-frequency bands: Q1 (lowest 25%), Q2, Q3, and Q4 (highest 25%). The encoded class labels were used to train and compare Random Forest, XGBoost, LightGBM, and CatBoost classifiers.
-
-- Train/test split: **80:20**.
-- Random state: **42**.
-- Classifier configuration: default hyperparameters, according to the thesis.
-- Evaluation: accuracy, precision, recall, per-class F1, confusion matrices, and regression-style metrics computed on encoded quartile labels.
-- Regression models in the thesis were tuned using Optuna; the classification models were not tuned in this experiment.
-
-**Reported comparative result:** Chapter 5 identifies Random Forest as the strongest overall model in its quantitative comparison, reporting **MAE 0.0189**, **RMSE 0.1617**, and **R² 0.9790** on encoded quartile labels. The thesis also reports approximately **98% accuracy** for Random Forest, with F1-scores of **0.99 for Q1 and Q4** and **0.98 for Q2 and Q3**.
-
-These MAE, RMSE, and R² values describe distances between encoded quartile labels. They are not errors measured in Malaysian ringgit and should not be interpreted as exact-price regression performance. The thesis has conflicting prose about whether CatBoost or Random Forest is the best classifier; the specific numeric comparison in Chapter 5 is used here, and should be reconciled with the final experiment outputs.
-
-### Experiment B — Three-band, two-stage pipeline reported in the project README draft
-
-The supplied project README describes a separate hybrid pipeline:
-
-1. A Random Forest classifier assigns a listing to Low, Medium, or High price range.
-2. A separate regression model estimates price within the selected segment.
-
-**Classification results reported in that README draft:**
+The Random Forest classifier predicts Low, Medium, or High price range.
 
 | Metric | Score |
 | --- | ---: |
 | Accuracy | 0.9896 |
 | Macro F1-score | 0.9868 |
 
-**Segment-specific regression results reported in that README draft:**
+### Stage 2 — Price estimation by segment
+
+A separate regressor estimates price within each predicted segment.
 
 | Price segment | Model | Test R² |
 | --- | --- | ---: |
@@ -97,73 +61,59 @@ The supplied project README describes a separate hybrid pipeline:
 | Medium | Random Forest | 0.9834 |
 | High | Random Forest | 0.9528 |
 
-These figures are kept separate from Experiment A because the README draft uses three bands and range-specific regressors, while the thesis reports four quartiles and a classifier comparison. The project materials provided do not include enough experiment artifacts to verify that both result sets use the same data split, dataset version, or evaluation protocol.
+R² indicates how much of the variation in test-set prices is explained by each segment model. The supplied project summary does not provide MAE or RMSE in RM, a baseline comparison, or the sample count in each segment, so those details should be added when the evaluation outputs are available.
+
+## Separate thesis experiment: four price quartiles
+
+The thesis also reports an experiment that classifies prices into four equal-frequency quartiles, Q1–Q4, using `pandas.qcut()`. It compares Random Forest, XGBoost, LightGBM, and CatBoost using an 80:20 train-test split and random state 42.
+
+The thesis reports approximately **98% accuracy** for Random Forest and, on encoded quartile labels, **MAE 0.0189**, **RMSE 0.1617**, and **R² 0.9790**. These are classification-label metrics, not errors in Ringgit, and they are separate from the three-band pipeline results above. The README presents the three-band system as the main solution because it produces a segment-specific price estimate, which aligns directly with the project's price-prediction use case.
 
 ## Workflow
 
 ```mermaid
 flowchart TD
-    A[iProperty listings] --> B[Automated collection]
-    B --> C[Cleaning and feature engineering]
-    C --> D{Experiment design}
-    D --> E[Four-quartile classification]
-    D --> F[Price regression]
-    D --> G[Three-band classifier and segment regressors]
-    E --> H[Evaluation and interpretation]
-    F --> H
-    G --> H
-    H --> I[Price-analysis outputs]
+    A[iProperty listings] --> B[Collection and cleaning]
+    B --> C[Feature engineering]
+    C --> D[Random Forest price-band classifier]
+    D --> E[Low, Medium, or High segment]
+    E --> F[Segment-specific regressor]
+    F --> G[Estimated listing price]
+    G --> H[Evaluation and review]
 ```
 
-## Business relevance
+## Business use
 
-The project demonstrates a practical analytical workflow for an early-stage property decision-support tool. Potential users could use estimated prices or price bands to shortlist listings, compare similar properties, or flag listings for further review. The segment-based design also illustrates how separate models can be evaluated for distinct parts of a market.
+The pipeline could support an early-stage property comparison workflow by helping users shortlist listings, compare asking prices, and flag estimates for further review. It demonstrates how a business problem can be translated into data collection, feature preparation, model selection, evaluation, and a user-facing prototype.
 
-The project does **not** demonstrate measured business impact, automated transaction decisions, or a validated property valuation service. Listing prices may differ from actual transacted prices, and estimates should be reviewed alongside current market evidence and professional judgement.
+The supplied project README identifies Streamlit as the interface technology. No public demo link or measured business outcome was provided, so this project is presented as a portfolio prototype rather than a production valuation service.
 
-## Tools and skills demonstrated
+## Tools and skills
 
-- **Data collection:** Python, Selenium WebDriver, XPath, Scrapy (referenced in thesis)
-- **Data processing:** Pandas, NumPy, CSV workflows, missing-value and outlier handling
-- **Machine learning:** Scikit-learn, Random Forest, XGBoost, LightGBM, CatBoost
-- **Model tuning:** Optuna for regression-model tuning, as described in the thesis
-- **Evaluation and visualization:** classification and regression metrics, confusion matrices, residual/scatter visualizations, Matplotlib, Seaborn
-- **Application interface:** Streamlit is identified in the supplied project README draft; a public demo URL was not provided
+- **Programming and data:** Python, Pandas, NumPy
+- **Data collection:** Selenium WebDriver, XPath
+- **Machine learning:** Scikit-learn, Random Forest, CatBoost, XGBoost, LightGBM
+- **Model tuning and evaluation:** Optuna (for regression models in the thesis), classification metrics, R², confusion matrices
+- **Visualization and interface:** Matplotlib, Seaborn, Streamlit
 
-## Limitations and responsible interpretation
+## Limitations and next steps
 
-- The data represents online asking listings collected during January–March 2025, not completed transactions or current market prices.
-- The thesis describes a market snapshot and does not model temporal price changes.
-- Listings above RM1,000,000 were excluded, so the reported models should not be applied to luxury properties.
-- Coverage and listing availability may vary by location; the thesis gives inconsistent location lists across sections.
-- The thesis describes different missing-value handling procedures in its methodology and implementation chapters.
-- The quartile experiment's regression-style metrics use encoded category labels, not Ringgit prices.
-- The thesis and project README draft describe different classification schemes and report different model results; results must be tied to a specific dataset, code version, and split before comparing or deploying them.
-- Model explanations are mentioned in the thesis, but the supplied materials do not include SHAP plots or a final feature-importance result to show here.
-- This project supports exploration and comparison; it should not replace professional valuation or current market research.
-
-## Recommended next steps
-
-- Publish a reproducible data dictionary and document the final cleaning rules.
-- Report dataset row counts before and after each cleaning step.
-- Confirm the final number and names of covered states and federal territories.
-- Add a baseline and compare both model designs on the same held-out data.
-- Report price-regression MAE and RMSE in RM, alongside R².
-- Include a confusion matrix and per-class precision, recall, and F1 for each classifier.
-- Add actual-versus-predicted examples and explain how the model should be interpreted.
-- Include verified SHAP or feature-importance outputs if these analyses were completed.
-- Provide reproducible setup instructions and a working Streamlit demo link if available.
-- Re-evaluate the model with newer data and monitor performance as listing patterns change.
+- The listings are asking prices collected during **January–March 2025**, not completed transactions or current market prices; properties above **RM1,000,000** were excluded.
+- The thesis describes different geographic lists and missing-value procedures across sections. The README uses the thesis's reported total of 13 states and federal territories; the final coverage and cleaning rules should be confirmed against the code and dataset.
+- The thesis quartile metrics use encoded labels, while the main three-band system reports segment R². Add RM-based MAE/RMSE and compare both approaches on the same held-out listings before drawing conclusions about which performs best.
+- To improve reproducibility, publish the final data dictionary, row counts before and after cleaning, confusion matrix, actual-versus-predicted examples, verified feature explanations, setup instructions, and a demo link if available.
 
 ## Project visuals
 
-**iProperty data collection and attributes**
+**Collected property attributes**
 
 ![House price dataset attributes](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/936d2de0194e5b04fc8649fab47df037539244db/House%20Price%20Prediction/Main/Web%20Scraping/Extracted%20Attributes/image.png)
 
-**Streamlit application architecture and user flow**
+**Application architecture and pricing flow**
 
 ![iProperty architecture and pricing flow for Selangor](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/a88129835c9aa7db1d97eb71c36fdaf8c085764b/House%20Price%20Prediction/Main/Streamlit/iProperty%20Website%20Architecture%20with%20House%20Attributes%20and%20Pricing%20Flow%20for%20Selangor.png)
+
+**Streamlit input flow**
 
 ![Streamlit house price prediction input flow](https://github.com/azlinaaaa/House-Price-Prediction-Using-Machine-Learning/blob/baae2de9f38166974f12cf5c809938786e1d4f0b/House%20Price%20Prediction/Main/Streamlit/image.png)
 
